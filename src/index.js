@@ -39,4 +39,19 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
   },
 };
 
-console.log('project wired!')
+
+const hdrNavLinks = document.querySelectorAll('header nav a');
+const arrLinkTxt = Object.values(siteContent.nav);
+const logoImg = document.querySelector('#logo-img');
+const mainHeading = document.querySelector('h1');
+const ctaButton = document.querySelector('.cta-text button');
+const ctaImg = document.querySelector('.cta img')
+const midImg = document.querySelector('#middle-img');
+
+console.log(arrLinkTxt);
+hdrNavLinks.forEach((element, i)=> element.textContent = arrLinkTxt[i]);
+logoImg.src = siteContent.images["logo-img"];
+mainHeading.textContent = siteContent.cta.h1;
+ctaButton.textContent = siteContent.cta.button;
+ctaImg.src = siteContent.images["cta-img"];
+midImg.src = siteContent.images["accent-img"];
