@@ -47,11 +47,37 @@ const mainHeading = document.querySelector('h1');
 const ctaButton = document.querySelector('.cta-text button');
 const ctaImg = document.querySelector('.cta img')
 const midImg = document.querySelector('#middle-img');
+const contFeatures = document.querySelector('.top-content .text-content:first-child');
+const contAbout = document.querySelector('.top-content .text-content:last-child');
+const contServices = document.querySelector('.bottom-content .text-content:first-child');
+const contProducts = document.querySelector('.bottom-content .text-content:nth-child(2)');
+const contVision = document.querySelector('.bottom-content .text-content:last-child');
+const contents = [contFeatures, contAbout, contServices, contProducts, contVision];
+const objContents = Object.values(siteContent["main-content"]);
+const h4s = objContents.filter((val, i) => i % 2 === 0 )
+const justContent = objContents.filter((val, i) => i % 2 === 1)
+const contactH4 = document.createElement('h4');
+const contactSect = document.querySelector('section.contact');
 
-console.log(arrLinkTxt);
+
+
 hdrNavLinks.forEach((element, i)=> element.textContent = arrLinkTxt[i]);
 logoImg.src = siteContent.images["logo-img"];
 mainHeading.textContent = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
 ctaImg.src = siteContent.images["cta-img"];
 midImg.src = siteContent.images["accent-img"];
+
+contents.forEach((div, i) => {
+  div.firstChild.textContent = h4s[i];
+  div.lastChild.textContent = justContent[i]
+})
+
+
+contactSect.appendChild(contactH4);
+contactH4.textContent = siteContent["contact"]["contact-h4"];
+
+contactH4.nextElementSibling.textContent = siteContent["contact"]["address"];
+
+
+
