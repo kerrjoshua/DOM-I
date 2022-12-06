@@ -69,8 +69,8 @@ ctaImg.src = siteContent.images["cta-img"];
 midImg.src = siteContent.images["accent-img"];
 
 contents.forEach((div, i) => {
-  div.firstChild.textContent = h4s[i];
-  div.lastChild.textContent = justContent[i]
+  div.firstElementChild.textContent = h4s[i];
+  div.lastElementChild.textContent = justContent[i]
 })
 
 
