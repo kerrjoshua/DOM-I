@@ -56,10 +56,13 @@ const contents = [contFeatures, contAbout, contServices, contProducts, contVisio
 const objContents = Object.values(siteContent["main-content"]);
 const h4s = objContents.filter((val, i) => i % 2 === 0 )
 const justContent = objContents.filter((val, i) => i % 2 === 1)
-const contactH4 = document.createElement('h4');
+const contactH4 = document.querySelector('section.contact h4');
 const contactSect = document.querySelector('section.contact');
-
-
+const contactAddress = document.querySelector('section.contact p:nth-of-type(1)');
+const contactPhone = document.querySelector('section.contact p:nth-of-type(2)');
+const contactEmail = document.querySelector('section.contact p:nth-of-type(3)');
+const copyright = document.querySelector('footer a');
+const navLinks = document.querySelectorAll('nav a');
 
 hdrNavLinks.forEach((element, i)=> element.textContent = arrLinkTxt[i]);
 logoImg.src = siteContent.images["logo-img"];
@@ -74,10 +77,27 @@ contents.forEach((div, i) => {
 })
 
 
-contactSect.appendChild(contactH4);
-contactH4.textContent = siteContent["contact"]["contact-h4"];
 
-contactH4.nextElementSibling.textContent = siteContent["contact"]["address"];
+contactH4.textContent = siteContent["contact"]["contact-h4"];
+contactAddress.textContent = siteContent["contact"]["address"];
+contactPhone.textContent = siteContent["contact"]["phone"];
+contactEmail.textContent = siteContent["contact"]["email"];
+copyright.textContent = siteContent['footer']['copyright'];
+
+navLinks.forEach((link) => link.classList.add('italic'));
+copyright.classList.add('bold');
+
+
+
+// for (i = 1; i < contactSect.childElementCount ; i++) {
+  
+//   let elem = document.querySelector(`section.contact:nth-child(${i})`);
+//   elem.textContent = addies[i];
+//   console.log(elem, addies[i]);
+
+// }
+// console.log(contactH4);
+// contactH4.nextElementSibling.textContent = siteContent["contact"]["address"];
 
 
 
